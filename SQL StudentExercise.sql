@@ -89,3 +89,17 @@ INSERT INTO StudentExersice(StudentId,ExerciseId) VALUES(9,4);
 INSERT INTO StudentExersice(StudentId,ExerciseId) VALUES(9,3);
 INSERT INTO StudentExersice(StudentId,ExerciseId) VALUES(10,1);
 INSERT INTO StudentExersice(StudentId,ExerciseId) VALUES(10,4);
+
+
+
+
+SELECT s.StudentName,
+c.CohortNumber,
+e.ExerciseName,
+i.InstuctorName
+
+FROM StudentExercise se
+LEFT JOIN Student s ON se.StudentId = s.Id 
+LEFT JOIN Cohort c On s.CohortId = c.id
+LEFT JOIN Exercise e ON se.ExerciseId = e.Id
+LEFT JOIN Instructor i ON e.InstructorId = i.Id
